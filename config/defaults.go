@@ -2,6 +2,12 @@ package config
 
 // This is where all the config defaults go for the bot.
 const (
-	BotName string = "Unity"
-	UIPort  int    = 10101
+	DefaultBotName string = "Unity"
+	DefaultUIPort  int    = 10101
 )
+
+func setDefaults() {
+	GlobalConfig.BotName = DefaultBotName
+	GlobalConfig.UIPort = DefaultUIPort
+
+}
