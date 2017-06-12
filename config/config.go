@@ -11,6 +11,13 @@ import (
 type config struct {
 	BotName string `yaml:"botName"`
 	UIPort  int    `yaml:"uiPort"`
+	DB      struct {
+		User     string `yaml:"user"`
+		Password string `yaml:"password"`
+		Address  string `yaml:"address"`
+		Name     string `yaml:"name"`
+		Port     int    `yaml:"port"`
+	} `yaml:"db"`
 }
 
 // GlobalConfig is the golang representation of the configuration of this bot.
