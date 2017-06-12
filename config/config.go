@@ -18,6 +18,9 @@ type config struct {
 		Name     string `yaml:"name"`
 		Port     int    `yaml:"port"`
 	} `yaml:"db"`
+	Discord struct {
+		Token string `yaml:"token"`
+	} `yaml:"discord"`
 }
 
 // GlobalConfig is the golang representation of the configuration of this bot.
