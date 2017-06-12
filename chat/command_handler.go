@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
+	"github.com/corvuscrypto/unity_bot/config"
 )
 
 // CommandHandler represents a handler that takes a command name and possibly
@@ -27,9 +28,10 @@ func handleCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
-	if m.Content[0] != '/' {
+	if m.Content[0] != config.GlobalConfig.CommandPrefix {
 		return
 	}
+
 	commandParts := strings.Split(strings.TrimSpace(m.Content), " ")
 	command := commandParts[0]
 	if handler, ok := commandHandlers[command]; ok {

@@ -9,9 +9,10 @@ import (
 )
 
 type config struct {
-	BotName string `yaml:"botName"`
-	UIPort  int    `yaml:"uiPort"`
-	DB      struct {
+	BotName       string `yaml:"botName"`
+	UIPort        int    `yaml:"uiPort"`
+	CommandPrefix byte   `yaml:"commandPrefix"`
+	DB            struct {
 		User     string `yaml:"user"`
 		Password string `yaml:"password"`
 		Address  string `yaml:"address"`

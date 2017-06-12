@@ -3,7 +3,8 @@ package config
 // This is where all the config defaults go for the bot.
 const (
 	DefaultBotName string = "Unity"
-	DefaultUIPort  int    = 10101
+	DefaultUIPort int = 10101
+	DefaultCommandPrefix byte = '/'
 
 	// DB constants
 	DefaultDBUser string = ""
@@ -16,6 +17,7 @@ const (
 func setDefaults() {
 	GlobalConfig.BotName = DefaultBotName
 	GlobalConfig.UIPort = DefaultUIPort
+	GlobalConfig.CommandPrefix = DefaultCommandPrefix
 
 	GlobalConfig.DB.User = DefaultDBUser
 	GlobalConfig.DB.Password = DefaultDBPassword
