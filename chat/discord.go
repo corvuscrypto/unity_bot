@@ -12,15 +12,31 @@ import (
 // DiscordSession is the main connection/session for discord (duh)
 var DiscordSession *discordgo.Session
 
-func connectToDiscord() {
+//ConnectToDiscord initiates a connection to discord.
+func ConnectToDiscord() {
 	var err error
 	DiscordSession, err = discordgo.New("bot " + config.GlobalConfig.Discord.Token)
 	if err != nil {
 		log.Fatal(err)
 	}
+	err = DiscordSession.Open()
+	if err != nil {
+		log.Fatal(err)
+	}
+	retrieveChannels()
 }
 
-func init() {
-	connectToDiscord()
-	retrieveChannels()
+func handleMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
+	if m.Author.ID == s.State.User.ID {
+		return
+	}
+
+	// if it's a command, handle it
+	if m.Content[0] == config.GlobalConfig.CommandPrefix {
+		handleCommand(s, m)
+		return
+	}
+
+	// otherwise treat it as a message
+	handleMessage(s, m)
 }
