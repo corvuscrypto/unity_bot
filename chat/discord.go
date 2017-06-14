@@ -15,7 +15,7 @@ var DiscordSession *discordgo.Session
 //ConnectToDiscord initiates a connection to discord.
 func ConnectToDiscord() {
 	var err error
-	DiscordSession, err = discordgo.New("bot " + config.GlobalConfig.Discord.Token)
+	DiscordSession, err = discordgo.New("Bot " + config.GlobalConfig.Discord.Token)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -24,6 +24,7 @@ func ConnectToDiscord() {
 		log.Fatal(err)
 	}
 	retrieveChannels()
+	DiscordSession.AddHandler(handleMessageCreate)
 }
 
 func handleMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
