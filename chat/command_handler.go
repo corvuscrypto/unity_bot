@@ -30,7 +30,7 @@ func RemoveHandler(command string) {
 }
 
 func handleCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
-	commandParts := strings.Split(strings.TrimSpace(m.Content), " ")
+	commandParts := strings.Split(strings.TrimSpace(m.Content[1:]), " ")
 	command := new(CommandMessage)
 	command.Type = commandParts[0]
 	command.Message = m
