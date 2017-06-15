@@ -28,7 +28,7 @@ func ConnectToDiscord() {
 }
 
 func handleMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
-	if m.Author.ID == s.State.User.ID {
+	if m.Author.ID == s.State.User.ID || len(m.Content) == 0 {
 		return
 	}
 
