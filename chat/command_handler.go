@@ -17,7 +17,7 @@ type CommandMessage struct {
 // other positional arguments
 type CommandHandler func(*discordgo.Session, *CommandMessage)
 
-var commandHandlers map[string]CommandHandler
+var commandHandlers = make(map[string]CommandHandler)
 
 // AddCommandHandler allows handlers to be added on the fly
 func AddCommandHandler(command string, handler CommandHandler) {
