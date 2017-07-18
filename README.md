@@ -1,6 +1,3 @@
-# unity_bot
-Multi-purpose discord bot for some fun. This bot utilizes MySQL for persistent data storage. More documentation to come.
+# Deprecated
 
-## Organization
-This is gonna be a single binary. Admin interface via a default port of 10101 (lolol) and a MySQL database connection for things
-like access control, preferences, etc.
+This project is now deprecated and exists on GitLab on a private organization repo. The project is very much alive and updated frequently but is now private as per the request of the owners. 
